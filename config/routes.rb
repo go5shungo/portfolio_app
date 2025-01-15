@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
-  get 'homes/top'
+  
+  root to: 'homes#top'
   get 'homes/about', as: 'about'
 
   devise_for :users
@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     end
     resources :favorite,only: [:create,:destroy]
     resources :relationships,only: [:create,:destroy]
-    get  "relationships/followings"  => "relatinships#followings"
-    get  "relationships/followers"  => "relatinships#followers"
+    get  "relationships/followings"  => "relationships#followings"
+    get  "relationships/followers"  => "relationships#followers"
     resources :maps
     resources :questions
     resources :answers,except: [:index]
