@@ -3,6 +3,8 @@
 <% @posts.each do |post| %>
 
   <p>タイトル</p>
-  <span><%= post.title %></span>
+  <span>
+    <%= link_to post.title, post_path(post.id) %>
+  </span>
   
 <% end %>
