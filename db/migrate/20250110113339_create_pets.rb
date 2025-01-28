@@ -3,9 +3,10 @@ class CreatePets < ActiveRecord::Migration[6.1]
     unless table_exists?(:pets)
     create_table :pets do |t|
       t.integer :user_id, null: false
-      t.boolean :sex
-      t.date    :birthday
       t.string  :name, null: false
+      t.integer :type
+      t.date    :birthday
+      t.boolean :sex
       t.text    :introduction
 
       t.timestamps
