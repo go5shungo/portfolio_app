@@ -1,6 +1,6 @@
 <h1>ペット登録</h1>
 
-<%= form_with  model: Pet.new do |f| %>
+<%= form_with  model: @pet, method: :post do |f| %>
 
   <h4>写真</h4>
   <%= f.file_field :image, accept: "image/*" %>
@@ -9,13 +9,18 @@
   <%= f.text_field :name %>
 	
   <h4>種類</h4>
-  <%= f.text_field :type %>
+  <%= f.number_field :kind, in: 1..4 %>
   
   <h4>誕生日</h4>
-  <%= f.text_field :birthday %>
+  <%= f.date_field :birthday %>
 
   <h4>性別</h4>
-  <%= f.text_field :bsex %>
+   <div>
+      <%= f.radio_button :sex, true %>
+      <%= f.label :sex, 'オス♂', value: true %>
+      <%= f.radio_button :sex, false %>
+      <%= f.label :sex, 'メス♀', value: false %>
+    </div>
 
   <h4>紹介文</h4>
   <%= f.text_area :introduction %>

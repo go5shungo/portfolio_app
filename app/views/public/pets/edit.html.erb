@@ -1,0 +1,12 @@
+<h1>ペット登録情報変更</h1>
+<%= form_with model: @pet do |f| %>
+
+  <h4>名前</h4>
+  <%= f.text_field :name %>
+  
+  <h4>種類</h4>
+  <%= f.number_field :kind %>
+  
+  <%= f.submit '保存' %>
+  
+<% end %>

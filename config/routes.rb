@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :maps
     resources :questions
     resources :answers,except: [:index]
-    resources :pets,except: [:show,:index]
+    resources :pets
   end
   namespace :admin do
     resources :sessions,only: [:new,:create,:destroy]

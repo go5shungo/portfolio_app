@@ -1,0 +1,22 @@
+<h1>名前</h1>
+<p><%= @pet.name %></p>
+
+<h2>画像</h2>
+   <%= image_tag @pet.image, size: "300x300" %>
+
+<h2>種類</h2>
+<p><%= @pet.kind %></p>
+
+<h2>誕生日</h2>
+<p><%= @pet.birthday %></p>
+
+<h2>性別</h2>
+<p><%= @pet.sex %></p>
+
+<h2>紹介文</h2>
+<p><%= @pet.introduction %></p>
+
+
+
+<%= link_to "編集", edit_pet_path(@pet.id) %>
+<%= link_to "削除", pet_path(@pet.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
