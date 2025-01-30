@@ -12,11 +12,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<body>
-  <header>
+  <body class="d-flex flex-column vh-100">
+  <header class="shadow-sm">
     <% if user_signed_in? %>
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+      <%= link_to '新規投稿', new_post_path %>
+      </li>
+      <li>
+      <%= link_to '投稿一覧', posts_path %>
       </li>
     <% else %>
       <li>

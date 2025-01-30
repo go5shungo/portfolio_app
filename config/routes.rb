@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   
   root to: 'homes#top'
   get 'homes/about', as: 'about'
-  
+
   devise_for :users
+  resources :users, only: [:show, :edit]
   scope module: :public do
     resources :posts do
       resources :comments,only: [:create,:destroy]
