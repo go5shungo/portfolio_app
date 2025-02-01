@@ -1,5 +1,6 @@
 class Pet < ApplicationRecord
   has_one_attached :image
+  belongs_to :user
 
   enum kind: {
     その他: 0,
@@ -8,7 +9,7 @@ class Pet < ApplicationRecord
   }
 
   enum sex: {
-    オス: true,
-    メス: false
+    オス♂: true,
+    メス♀: false
   }
 end

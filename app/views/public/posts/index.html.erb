@@ -11,4 +11,12 @@
   <% if post.present? && post.image.present? %>
    <%= image_tag post.image, size: "200x200" %>
   <% end %>
+
+  <div>
+  <%= link_to post_path(post.id) do %>
+  <% end %>
+    <p>本文：<%= post.body %></p>
+    <p>ユーザーネーム：<%= post.user.name %></p>
+  </div>
+
 <% end %>
