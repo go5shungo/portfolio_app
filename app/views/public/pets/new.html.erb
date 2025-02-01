@@ -1,5 +1,14 @@
 <h1>ペット登録</h1>
 
+<% if @pet.errors.any? %>
+  <%= @pet.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @pet.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with  model: @pet, method: :post do |f| %>
 
   <h4>写真</h4>

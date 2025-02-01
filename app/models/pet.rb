@@ -12,4 +12,9 @@ class Pet < ApplicationRecord
     オス♂: true,
     メス♀: false
   }
+
+  validates :name, presence: true
+  validates :kind, presence: true
+  validates :image, presence: true
+
 end
