@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit]
   scope module: :public do
     resources :posts do
-      resources :comments,only: [:create,:destroy]
+      resources :post_comments,only: [:create,:destroy]
     end
-    resources :favorite,only: [:create,:destroy]
+    resources :favorites,only: [:create,:destroy]
     resources :relationships,only: [:create,:destroy]
     get  "relationships/followings"  => "relationships#followings"
     get  "relationships/followers"  => "relationships#followers"
