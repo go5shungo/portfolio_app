@@ -12,6 +12,7 @@
               <strong><i class="farimage fa-flag"></i><span> <%= post.title %></span></strong>
             <% end %>
           </p>
+
           <p class="card-text">本文：<%= post.body %></p>
           <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
           <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>

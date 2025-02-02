@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :posts do
       resources :post_comments,only: [:create,:destroy]
+      resource :favorite,only: [:create,:destroy]
     end
-    resources :favorites,only: [:create,:destroy]
+    
     resources :relationships,only: [:create,:destroy]
     get  "relationships/followings"  => "relationships#followings"
     get  "relationships/followers"  => "relationships#followers"
