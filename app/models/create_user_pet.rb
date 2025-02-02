@@ -1,0 +1,2 @@
+class CreateUserPet < ApplicationRecord
+end
