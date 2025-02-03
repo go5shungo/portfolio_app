@@ -20,5 +20,12 @@
   <h4>画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
   
+  <h4>ペット情報</h4>
+  <div class="checkbox">
+    <%= collection_check_boxes(:pets, :pet_ids, current_user.pets, :id, :name) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+  </div>
+
   <%= f.submit '投稿' %>
 <% end %>

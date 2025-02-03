@@ -16,6 +16,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+      
     redirect_to post_path(@post.id)
     else
       render :new
@@ -43,4 +44,7 @@ class Public::PostsController < ApplicationController
     params.require(:post).permit(:title, :body, :image)
   end
 
+  def pets_params
+    params.require(:pets).permit(pet_ids: [])
+  end
 end

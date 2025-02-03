@@ -1,6 +1,8 @@
 class Pet < ApplicationRecord
   has_one_attached :image
   belongs_to :user
+  has_many :post_pets
+  has_many :posts, :through => :post_pets
 
   enum kind: {
     その他: "0",
