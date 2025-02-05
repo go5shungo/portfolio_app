@@ -16,7 +16,9 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      
+      pets_params[:pet_ids].each do |pet_id|
+        PostPet.create(post_id: @post.id, pet_id: pet_id)
+      end
     redirect_to post_path(@post.id)
     else
       render :new

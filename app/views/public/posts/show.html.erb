@@ -10,6 +10,12 @@
 <h2>ユーザーネーム</h2>
 <p><%= @post.user.name %></p>
 
+<h2>ペット情報</h2>
+<% @post.pets.each do |pet| %>
+ <P><%= pet.name %></p>
+ <p> <%= image_tag pet.image, size: "100x100" %></p>
+<% end %>
+
 <h2>投稿日</h2>
   <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
 

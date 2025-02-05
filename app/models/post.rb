@@ -8,11 +8,13 @@ class Post < ApplicationRecord
 
   def get_image
   end
+
+  def create
+  end
   
   validates :title, presence: true
   validates :body, presence: true
   validates :image, presence: true
-  # validates :, presence: true
   
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
