@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'homes/about', as: 'about'
 
   devise_for :users
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
   scope module: :public do
     resources :posts do
       resources :post_comments,only: [:create,:destroy]

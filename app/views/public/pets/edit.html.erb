@@ -1,12 +1,29 @@
 <h1>ペット登録情報変更</h1>
 <%= form_with model: @pet do |f| %>
+  
+  <h4>写真</h4>
+  <%= f.file_field :image, accept: "image/*" %>
 
   <h4>名前</h4>
   <%= f.text_field :name %>
-  
+	
   <h4>種類</h4>
-  <%= f.number_field :kind %>
+  <%= f.number_field :kind, in: 0..2 %>
   
+  <h4>誕生日</h4>
+  <%= f.date_field :birthday %>
+
+  <h4>性別</h4>
+   <div>
+      <%= f.radio_button :sex, true %>
+      <%= f.label :sex, 'オス♂', value: true %>
+      <%= f.radio_button :sex, false %>
+      <%= f.label :sex, 'メス♀', value: false %>
+    </div>
+
+  <h4>紹介文</h4>
+  <%= f.text_area :introduction %>
+
   <%= f.submit '保存' %>
   
 <% end %>
