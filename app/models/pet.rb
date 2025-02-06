@@ -18,5 +18,5 @@ class Pet < ApplicationRecord
   validates :name, presence: true
   validates :kind, presence: true
   validates :image, presence: true
-
+ 
 end
