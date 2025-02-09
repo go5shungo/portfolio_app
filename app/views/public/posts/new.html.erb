@@ -1,5 +1,4 @@
 <h1>新規投稿</h1>
-
 <% if @post.errors.any? %>
   <%= @post.errors.count %>件のエラーが発生しました
   <ul>
@@ -25,7 +24,15 @@
     <%= collection_check_boxes(:pets, :pet_ids, current_user.pets, :id, :name) do |b| %>
       <%= b.label { b.check_box + b.text } %>
     <% end %>
-  </div>
+    </div>
 
+    <%= check_box_tag :sample1 %>
+<%= label_tag :sample1, "その他" %>
+
+<%= check_box_tag :sample2 %>
+<%= label_tag :sample2, "猫" %>
+
+<%= check_box_tag :sample3 %>
+<%= label_tag :sample3, "犬" %>
   <%= f.submit '投稿' %>
 <% end %>

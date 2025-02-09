@@ -23,7 +23,7 @@
              <% end %>
            </p>
            <p class="card-text">本文：<%= post.body %></p>
-            <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
+           <p><%= "#{post.favorites.count} いいね" %></p>
            <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
           </div>
       </div>
@@ -32,4 +32,3 @@
   <% end %>
 
 </div>
-  
