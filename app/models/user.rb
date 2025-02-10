@@ -8,7 +8,10 @@ class User < ApplicationRecord
       has_many :pets, dependent: :destroy
       has_many :favorites, dependent: :destroy
       has_one_attached :profile_image
-      
+      after_create :create_pets
+
+
+
       def get_profile_image(width, height)
         unless profile_image.attached?
           file_path = Rails.root.join('app/assets/images/no_image.jpg')
