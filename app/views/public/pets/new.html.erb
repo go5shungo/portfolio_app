@@ -19,12 +19,12 @@
 	
   <h4>種類</h4>
       
-      <%= f.radio_button :kind, 2 %>
-      <%= f.label :kind, '犬', value: 2 %>
-      <%= f.radio_button :kind, 1 %>
-      <%= f.label :kind, '猫', value: 1 %>
-      <%= f.radio_button :kind, 0 %>
-      <%= f.label :kind, 'その他', value: 0 %>
+      <%= f.radio_button :kind, "犬" %>
+      <%= f.label :kind, '犬', value: "犬" %>
+      <%= f.radio_button :kind, "猫" %>
+      <%= f.label :kind, '猫', value: "猫" %>
+      <%= f.radio_button :kind, "その他" %>
+      <%= f.label :kind, 'その他', value: "その他" %>
 
 
   <h4>誕生日</h4>
@@ -32,10 +32,10 @@
 
   <h4>性別</h4>
    <div>
-      <%= f.radio_button :sex, true %>
-      <%= f.label :sex, 'オス♂', value: true %>
-      <%= f.radio_button :sex, false %>
-      <%= f.label :sex, 'メス♀', value: false %>
+      <%= f.radio_button :sex, "オス" %>
+      <%= f.label :sex, 'オス♂', value: "オス" %>
+      <%= f.radio_button :sex, "メス" %>
+      <%= f.label :sex, 'メス♀', value: "メス" %>
     </div>
 
   <h4>紹介文</h4>
