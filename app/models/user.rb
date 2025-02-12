@@ -8,7 +8,6 @@ class User < ApplicationRecord
       has_many :pets, dependent: :destroy
       has_many :favorites, dependent: :destroy
       has_one_attached :profile_image
-      after_create :create_pets
 
 
 
