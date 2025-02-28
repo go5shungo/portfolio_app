@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about', as: 'about'
 
+
+  
   devise_for :users
   resources :users, only: [:show, :edit, :update]
   scope module: :public do
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
     resources :questions
     resources :answers,except: [:index]
     resources :pets
+    get '/search', to: 'searches#search'
   end
   namespace :admin do
     resources :sessions,only: [:new,:create,:destroy]

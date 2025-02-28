@@ -24,6 +24,13 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
+    <p id="notice"><%= notice %></p>
+      <div class="container">
+        <div class="row justify-content-start mb-2">
+          <div class="mr-3"><%= render 'public/searches/form' %></div>
+          <div class="mr-3"><%= render "public/searches/tag_form" %></div>
+        </div>
+      </div>
       <li class="nav-item">
         <%= link_to "D&Cについて", about_path, class: 'nav-link text-dark' %>
       </li>
@@ -38,6 +45,8 @@
       </li>
       <li class="nav-item">
       <%= link_to 'マイページ', user_path(current_user), class: 'nav-link text-dark' %>
+      </li>
+      
     <% else %>
     <li class="nav-item">
         <%= link_to "D&Cについて", about_path, class: 'nav-link text-dark' %>
@@ -47,14 +56,20 @@
       </li>
       <li class="nav-item">
         <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
-      </li>
+      </li>   
     <% end %>
            </ul>
-          </div>
+          </div>  
         </div>
       </nav>
   </header>
+  <main>
+ 
+  <% flash.each do |message_type, message| %>
+    <div class="flash-message <%= message_type %>"><%= message %></div>
+  <% end %>
   <%= yield %>
+  </main>
 </body>
   
 </html>
