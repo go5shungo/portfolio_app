@@ -28,7 +28,10 @@ Rails.application.routes.draw do
     resources :maps
     resources :questions
     resources :answers,except: [:index]
-    resources :pets
+    resources :pets,except: [:index]
+    resources :users,only: [] do 
+      resources :pets,only: [:index]
+    end
     get '/search', to: 'searches#search'
   end
   namespace :admin do

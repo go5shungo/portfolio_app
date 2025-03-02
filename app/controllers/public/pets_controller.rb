@@ -4,7 +4,8 @@ class Public::PetsController < ApplicationController
   end
 
   def index
-    @pets = current_user.pets
+    @user = User.find(params[:user_id])  
+    @pets = @user.pets
   end
 
   def show

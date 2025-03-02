@@ -1,7 +1,12 @@
 <div>
-  <h3><%= link_to @user.name, edit_user_path %>のマイページ</h3>                   <%# ユーザーの名前クリックしたら編集できるようにしたい。名前とパスワード、メールアドレス等。退会もこのリンクにつくりたい %>
-  
-  <%= link_to "MYペット", pets_path %>
+  <h3>
+  <% if current_user.id == @user.id %>
+    <%= link_to @user.name, edit_user_path %>のマイページ
+  <% else %>
+    <%= @user.name %>のマイページ
+  <% end %>
+  </h3>
+  <%= link_to "MYペット", user_pets_path(@user.id) %>
         <div class="col-7">
           <%= image_tag @user.get_profile_image(200,200), class: "mt-7"; %>
         </div>

@@ -15,7 +15,10 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    if @post.save
+    if current_user.pets.blank? || pets_params[:pet_ids].reject(&:blank?).blank?
+      flash.now[:alert] = "ペット情報がありません。" 
+      render :new
+    elsif @post.save
       pets_params[:pet_ids].each do |pet_id|
         PostPet.create(post_id: @post.id, pet_id: pet_id)
       end
