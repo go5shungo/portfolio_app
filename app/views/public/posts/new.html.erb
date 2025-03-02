@@ -10,16 +10,16 @@
 
 <%= form_with  model: Post.new do |f| %>
 
-  <h4>タイトル</h4>
+  <h4>タイトル<h6>※必須</h6></h4>
   <%= f.text_field :title %>
 	
-  <h4>本文</h4>
+  <h4>本文<h6>※必須</h6></h4>
   <%= f.text_area :body %>
   
-  <h4>画像</h4>
+  <h4>画像<h6>※必須</h6></h4>
   <%= f.file_field :image, accept: "image/*" %>
   
-  <h4>ペット情報</h4>
+  <h4>ペット情報<h6>※必須</h6></h4>
   <% if current_user.pets.exists? %>
   <div class="checkbox">
     <%= collection_check_boxes(:pets, :pet_ids, current_user.pets, :id, :name) do |b| %>
@@ -27,7 +27,6 @@
     <% end %>
     </div>
     <% else %>
-    <p>※ペット情報の登録は必須です</p>
     <h6><%= link_to "ペット登録はこちら", new_pet_path,target: :_blank %></h6>
     <% end %>
 

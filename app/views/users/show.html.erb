@@ -6,34 +6,19 @@
     <%= @user.name %>のマイページ
   <% end %>
   </h3>
-  <%= link_to "MYペット", user_pets_path(@user.id) %>
+  <%= link_to @user.name, user_pets_path(@user.id) %>のペット
         <div class="col-7">
           <%= image_tag @user.get_profile_image(200,200), class: "mt-7"; %>
         </div>
 </div>
 
-<div class="card-list-container py-5">
-  <% @posts.each do |post| %>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to post_path(post.id) do %>
-      <%= image_tag post.image, class: "card-img-top"; %>
-    <% end %>
-    <div class="card-body">
-      <div class="row">
-        
-          <div class="col-10">
-           <p class="card-title">
-             <%= link_to(post_path(post.id), class: "text-dark") do %>
-               <strong><i class="farimage fa-flag"></i><span> <%= post.title %></span></strong>
-             <% end %>
-           </p>
-           <p class="card-text">本文：<%= post.body %></p>
-           <p><%= "#{post.favorites.count} いいね" %></p>
-           <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
-          </div>
-      </div>
+  <div class="post-wrap">
+<% @posts.each do |post| %>
+  <div class="post-box">
+      <%= image_tag post.image, size: "200x200" %>
+    <div class="post-comment">
+      <span class="post-body"><%= post.body %></span>
+      <span class="post-title"><%=link_to post.title, post_path(post.id) %></span>
     </div>
   </div>
-  <% end %>
-
-</div>
+<% end %>

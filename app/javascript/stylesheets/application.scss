@@ -17,3 +17,49 @@
   color: #930403;
   border: solid 1px #930403;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  width: 880px;
+  margin: 0 auto;
+  border-top: solid 0.7px #000000;
+  border-bottom: solid 0.7px #000000;
+}
+
+main {
+  width: 880px;
+  margin: 0 auto;
+}
+
+.post-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-box {
+  width: 200px;
+  height: 250px;
+  margin: 10px;
+  position: relative;
+}
+
+.post-comment {
+  width: 200px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.post-body {
+  color: gray;
+  font-size: 12px;
+}
+
+.post-title {
+  font-size: 18px;
+}
