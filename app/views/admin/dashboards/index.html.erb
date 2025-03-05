@@ -1,6 +1,6 @@
 <h1>全ユーザー一覧</h1>
 <table class='table table-hover table-inverse'>
-<thead>
+  <thead>
     <tr>
       <th>ID</th>
       <th>名前</th>
@@ -13,7 +13,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-      <td><%= user.id %></td>
+        <td><%= user.id %></td>
         <td><%= user.name %><td>
         <td><%= user.email %><td>
         <td><%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
