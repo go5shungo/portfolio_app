@@ -31,11 +31,6 @@ nav {
   border-bottom: solid 0.7px #000000;
 }
 
-main {
-  width: 880px;
-  margin: 0 auto;
-}
-
 .post-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -56,10 +51,18 @@ main {
 }
 
 .post-body {
+  display: block;
   color: gray;
   font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .post-title {
+  display: block;
   font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

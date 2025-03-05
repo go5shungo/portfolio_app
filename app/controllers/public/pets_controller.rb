@@ -12,6 +12,10 @@ class Public::PetsController < ApplicationController
     @pet = Pet.find(params[:id])  
   end
 
+  def edit
+    @pet = Pet.find(params[:id])  
+  end
+
   def create
     @pet = Pet.new(pet_params)
     @pet.user_id = current_user.id
@@ -20,6 +24,12 @@ class Public::PetsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    pet = Pet.find(params[:id])
+    pet.destroy
+    redirect_to user_path(current_user)
   end
 
 

@@ -6,19 +6,39 @@
     <%= @user.name %>のマイページ
   <% end %>
   </h3>
-  <%= link_to @user.name, user_pets_path(@user.id) %>のペット
-        <div class="col-7">
-          <%= image_tag @user.get_profile_image(200,200), class: "mt-7"; %>
-        </div>
-</div>
 
-  <div class="post-wrap">
-<% @posts.each do |post| %>
-  <div class="post-box">
-      <%= image_tag post.image, size: "200x200" %>
-    <div class="post-comment">
-      <span class="post-body"><%= post.body %></span>
-      <span class="post-title"><%=link_to post.title, post_path(post.id) %></span>
-    </div>
-  </div>
+
+  <div class="container">
+    <div class="row"> 
+
+      <div class="col-lg-3" style="background-color: #ffd4d1;">
+       <h4>プロフィール</h4>
+        <%= image_tag @user.get_profile_image(200,200), class: "mt-7"; %><br>
+        <%=  @user.name %>のペット
+        <% @pets.each do |pet| %>
+        <span>
+         <%= image_tag pet.image, size: "200x200" %>
+        </span><br>
+        <span>
+         <%= link_to pet.name, pet_path(pet.id) %>
+        </span>
+      </div>
+        <% end %>
+        
+
+      <div class="col-lg-9" style="background-color: #bcdfff;">
+        <div class="post-wrap">
+         <% @posts.each do |post| %>
+           <div class="post-box">
+             <%= image_tag post.image, size: "200x200" %>
+               <div class="post-comment">
+                <span class="post-body"><%= post.body %></span>
+                <span class="post-title"><%=link_to post.title, post_path(post.id) %></span>
+               </div>
+           </div>
+        </div>
+      </div> 
+    </div> 
+
+  
 <% end %>
