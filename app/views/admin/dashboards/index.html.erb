@@ -1,9 +1,14 @@
 <h1>全ユーザー一覧</h1>
 <ul>
+
   <% @users.each do |user| %>
-    <li>
-      <%= user.name %> - <%= user.email %>
+    <table class="table table-striped">
+    
+      <%= user.id %> - <%= user.name %> - <%= user.email %>
       <%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' } %> 
-    </li>
+  
+    <table class="table table-striped">
   <% end %>
+
+ 
 </ul>

@@ -3,7 +3,7 @@
   <% if current_user.id == @user.id %>
     <%= link_to @user.name, edit_user_path %>のマイページ
   <% else %>
-    <%= @user.name %>のマイページ
+    <%= @user.name %>のプロフィール
   <% end %>
   </h3>
 
@@ -14,19 +14,23 @@
       <div class="col-lg-3" style="background-color: #ffd4d1;">
        <h4>プロフィール</h4>
         <%= image_tag @user.get_profile_image(200,200), class: "mt-7"; %><br>
-        <%=  @user.name %>のペット
+        <% if current_user.id == @user.id %>
+        <%= link_to "ペット登録はこちら", new_pet_path %>
+      <% else %>
+        <%= @user.name %>のペット
+      <% end %>
         <% @pets.each do |pet| %>
         <span>
          <%= image_tag pet.image, size: "200x200" %>
         </span><br>
         <span>
          <%= link_to pet.name, pet_path(pet.id) %>
-        </span>
-      </div>
+        </span><br>
         <% end %>
-        
+      </div>
 
       <div class="col-lg-9" style="background-color: #bcdfff;">
+      <h4><%= @user.name %>の投稿一覧</h4>
         <div class="post-wrap">
          <% @posts.each do |post| %>
            <div class="post-box">
@@ -36,9 +40,7 @@
                 <span class="post-title"><%=link_to post.title, post_path(post.id) %></span>
                </div>
            </div>
-        </div>
-      </div> 
-    </div> 
-
-  
-<% end %>
+        <% end %>
+      </div>
+  </div> 
+</div> 
