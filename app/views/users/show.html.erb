@@ -28,8 +28,9 @@
         </span><br>
         <% end %>
       </div>
-
-      <div class="col-lg-9" style="background-color: #bcdfff;">
+      <div class="offset-md-1">
+      </div>
+      <div class="col-lg-8" style="background-color: #bcdfff;">
       <h4><%= @user.name %>の投稿一覧</h4>
         <div class="post-wrap">
          <% @posts.each do |post| %>
@@ -40,7 +41,8 @@
                 <span class="post-title"><%=link_to post.title, post_path(post.id) %></span>
                </div>
            </div>
-        <% end %>
-      </div>
+         <% end %>
+         <%= paginate @posts %>
+        </div>
   </div> 
 </div> 

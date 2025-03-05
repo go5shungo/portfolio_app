@@ -1,14 +1,24 @@
 <h1>全ユーザー一覧</h1>
-<ul>
-
-  <% @users.each do |user| %>
-    <table class="table table-striped">
-    
-      <%= user.id %> - <%= user.name %> - <%= user.email %>
-      <%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' } %> 
-  
-    <table class="table table-striped">
-  <% end %>
-
- 
-</ul>
+<table class='table table-hover table-inverse'>
+<thead>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th></th>
+      <th>メールアドレス</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+      <td><%= user.id %></td>
+        <td><%= user.name %><td>
+        <td><%= user.email %><td>
+        <td><%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+          
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -28,7 +28,10 @@ class Public::PetsController < ApplicationController
 
   def destroy
     pet = Pet.find(params[:id])
-    pet.destroy
+    post_ids = pet.posts.ids
+    if pet.destroy
+    Post.where(id: post_ids).destroy_all
+    end
     redirect_to user_path(current_user)
   end
 
