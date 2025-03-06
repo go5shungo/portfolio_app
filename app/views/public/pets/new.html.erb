@@ -1,23 +1,23 @@
-<h1>ペット登録</h1>
-
-<% if @pet.errors.any? %>
-  <%= @pet.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @pet.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_with  model: @pet, method: :post do |f| %>
-
-  <h4>写真</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-
-  <h4>名前</h4>
-  <%= f.text_field :name %>
-	
-  <h4>種類</h4>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">ペット登録</h5>
+      <div class="form-body p-4">
+        <% if @pet.errors.any? %>
+        <%= @pet.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @pet.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+        <% end %>
+        
+         <%= form_with  model: @pet, method: :post do |f| %>
+          <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+          <div class="input-group mb-3 mt-4">
+            <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+          </div>
+          <h4>種類</h4>
       
       <%= f.radio_button :kind, "犬" %>
       <%= f.label :kind, '犬', value: "犬" %>
@@ -37,9 +37,14 @@
       <%= f.radio_button :sex, "メス" %>
       <%= f.label :sex, 'メス♀', value: "メス" %>
     </div>
+          <%= f.text_area :introduction, class: "form-control", rows: "3", placeholder: "ひとこと" %>
+          <hr>
 
-  <h4>紹介文</h4>
-  <%= f.text_area :introduction %>
-  
-  <%= f.submit '登録' %>
-<% end %>
+          
+            
+          <%= f.submit '登録', class: "btn btn-lg btn-block btn-info mt-4" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
