@@ -10,6 +10,8 @@ class Public::PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])  
+    @pet_ids = @pet.posts.ids
+    @post = Post.find(params[:id])
   end
 
   def edit
