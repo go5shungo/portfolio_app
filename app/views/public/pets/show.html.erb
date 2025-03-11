@@ -26,11 +26,11 @@
 <div class="col-lg-8" style="background-color: #bcdfff;">
 <p><%= @pet.name %>の投稿一覧</p>
 <div class="post-wrap">
-<% @pet_ids.each do |post| %>
+<% @posts.each do |post| %>
   <div class="post-box">
-  <%= image_tag @post.image, size: "200x200" %>
-  <%= @post.title %>
-  <%= @post.body %>
+  <%= image_tag post.image, size: "200x200" %>
+  <%=link_to post.title, post_path(post.id) %>
+  <%= post.body %>
 </div>
 <% end %>
 </div>

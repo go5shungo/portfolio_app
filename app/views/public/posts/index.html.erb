@@ -1,4 +1,13 @@
+
+
 <div class="card-list-container py-5">
+<%= form_tag posts_path, method: :get do %>
+  <% ["犬","猫","その他"].each do |category| %>
+    <%= check_box_tag "categories[]", category, params[:categories]&.include?(category) %>
+    <%= label_tag "categories_#{category}", category %>
+  <% end %>
+  <%= submit_tag "絞り込み",name: nil %>
+<% end %>
   <% @posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to post_path(post.id) do %>
