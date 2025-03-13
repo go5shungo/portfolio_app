@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row"> 
 
-      <div class="col-lg-3" style="background-color: #ffd4d1;">
+      <div class="col-lg-3">
        <h4>プロフィール</h4>
         <%= image_tag @user.get_profile_image(200,200), class: "mt-7"; %><br>
         <% if current_user.id == @user.id %>
@@ -30,7 +30,7 @@
       </div>
       <div class="offset-md-1">
       </div>
-      <div class="col-lg-8" style="background-color: #bcdfff;">
+      <div class="col-lg-8">
       <h4><%= @user.name %>の投稿一覧</h4>
         <div class="post-wrap">
          <% @posts.each do |post| %>

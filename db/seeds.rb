@@ -26,4 +26,33 @@ lucas = User.find_or_create_by!(email: "lucas@example.com") do |user|
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")
 end
 
+Pet.find_or_create_by!(name: "Maron") do |pet|
+  pet.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename:"sample-user1.jpg")
+  pet.kind = "猫"
+  pet.sex = "オス"
+  pet.user = olivia
+end
+
+Pet.find_or_create_by!(name: "Boss") do |pet|
+  pet.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), filename:"sample-user2.jpg")
+  pet.kind = "犬"
+  pet.sex = "オス"
+  pet.birthday = "2011/09/09"
+  pet.introduction = "よろしくお願いいたします。"
+  pet.user = olivia
+end
+
+Post.find_or_create_by!(title: "日常") do |post|
+  post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")
+  post.body = "ごろごろ"
+  post.user = olivia
+end
+
+Post.find_or_create_by!(title: "kuturogi") do |post|
+  post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")
+  post.body = "ごろごろ"
+  post.pet = "Maron"
+  post.user = olivia
+end
+
 puts "seedの実行が完了しました"
