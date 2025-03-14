@@ -1,13 +1,9 @@
 <h1>ペット登録情報変更</h1>
   <h2><%= @pet.name %>のプロフィール変更</h2>
-<%= form_with model: @pet do |f| %>
- 
-  <h4>写真</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-
-  <h4>紹介文</h4>
-  <%= f.text_area :introduction %>
-
-  <%= f.submit '保存' %>
-  
-<% end %>
+    <%= form_with model: @pet do |f| %>
+      <h4>写真</h4>
+        <%= f.file_field :image, accept: "image/*" %>
+      <h4>紹介文</h4>
+        <%= f.text_area :introduction %>
+        <%= f.submit '保存' %>
+    <% end %>

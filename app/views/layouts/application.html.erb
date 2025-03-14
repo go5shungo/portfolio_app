@@ -12,62 +12,61 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
-   <header class="shadow-sm">
-    <nav class="navbar navbar-expand-lg navbar-light">
-     <div class="container">
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-    <% if user_signed_in? %>
-    <p id="notice"><%= notice %></p>
-      <div class="container">
-        <div class="row justify-content-start mb-2">
-          <div class="mr-3"><%= render 'public/searches/form' %></div>
-          <div class="mr-3"><%= render "public/searches/tag_form" %></div>
-        </div>
-      </div>
-      <li class="nav-item">
-        <%= link_to "D&Cについて", about_path, class: 'nav-link text-dark' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-      </li>
-      <li class="nav-item">
-      <%= link_to '新規投稿', new_post_path, class: 'nav-link text-dark' %>
-      </li>
-      <li class="nav-item">
-      <%= link_to 'みんなの投稿', posts_path, class: 'nav-link text-dark' %>
-      </li>
-      <li class="nav-item">
-      <%= link_to 'マイページ', user_path(current_user), class: 'nav-link text-dark' %>
-      </li>
-      
-    <% else %>
-    <li class="nav-item">
-        <%= link_to "D&Cについて", about_path, class: 'nav-link text-dark' %>
-      </li>
-    <li class="nav-item">
-        <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
-      </li>   
-    <% end %>
-           </ul>
+<body class="d-flex flex-column vh-100">
+  <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <p id="notice"><%= notice %></p>
+              <div class="container">
+                <div class="row justify-content-start mb-2">
+                  <div class="mr-3"><%= render 'public/searches/form' %></div>
+                  <div class="mr-3"><%= render "public/searches/tag_form" %></div>
+                </div>
+              </div>
+              <li class="nav-item">
+                <%= link_to "D&Cについて", about_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to '新規投稿', new_post_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'みんなの投稿', posts_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'マイページ', user_path(current_user), class: 'nav-link text-dark' %>
+              </li>
+            <% else %>
+             <li class="nav-item">
+               <%= link_to "D&Cについて", about_path, class: 'nav-link text-dark' %>
+             </li>
+             <li class="nav-item">
+               <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+             </li>
+             <li class="nav-item">
+               <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+             </li>   
+            <% end %>
+          </ul>
           </div>  
         </div>
       </nav>
   </header>
-  <main>
- 
-  <% flash.each do |message_type, message| %>
-    <div class="flash-message <%= message_type %>"><%= message %></div>
-  <% end %>
-  <%= yield %>
-  </main>
+
+    <main>
+      <% flash.each do |message_type, message| %>
+        <div class="flash-message <%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </main>
 </body>
   
 </html>

@@ -23,10 +23,9 @@
         <td><%= image_tag post.image, size: "200x200" %><td>
         <td><%= link_to post.title,post, class: "post_#{post.id}" %><td>
         <td><%= post.body %></td>
-        <td>
-          <% post.tags.each do |tag| %>
+        <td><% post.tags.each do |tag| %>
             <li style="list-style: none;"><%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %></li>
-          <% end %>
+            <% end %>
         </td>
       </tr>
     <% end %>

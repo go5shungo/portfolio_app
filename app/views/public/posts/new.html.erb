@@ -23,24 +23,21 @@
           </div>
           <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "本文" %>
           <hr>
-
           <h4>ペット情報<h6>※必須</h6></h4>
           <% if current_user.pets.exists? %>
           <div class="checkbox">
             <%= collection_check_boxes(:pets, :pet_ids, current_user.pets, :id, :name) do |b| %>
               <%= b.label { b.check_box + b.text } %>
             <% end %>
-            </div>
+          </div>
             <% else %>
             <h6><%= link_to "ペット登録はこちら", new_pet_path,target: :_blank %></h6>
             <% end %>
-            
             <h4>タグ</h4>
             <%= f.label "Tag" %>
             <%= f.text_field :tag_name %>
-            
-          <%= f.submit '投稿', class: "btn btn-lg btn-block btn-info mt-4" %>
-        <% end %>
+            <%= f.submit '投稿', class: "btn btn-lg btn-block btn-info mt-4" %>
+            <% end %>
       </div>
     </div>
   </div>
