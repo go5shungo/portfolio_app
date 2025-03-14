@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row"> 
-    <div class="col-lg-4" style="background-color: #ffd4d1;">
+    <div class="col-lg-4">
         <h1>名前</h1>
         <p><%= @pet.name %></p>
         <h2>画像</h2>
@@ -18,14 +18,17 @@
           <%= link_to "削除", pet_path(@pet.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-lg btn-block btn-info mt-2" %>
         <% end %>
     </div>
-      <div class="col-lg-8" style="background-color: #bcdfff;">
+      <div class="col-lg-8">
         <p><%= @pet.name %>の投稿一覧</p>
           <div class="post-wrap">
             <% @posts.each do |post| %>
               <div class="post-box">
-              <%= image_tag post.image, size: "200x200" %>
-              <%=link_to post.title, post_path(post.id) %>
-              <%= post.body %>
+                <%= image_tag post.image, size: "200x200" %>
+                <div class="post-comment">
+                      <span class="post-body"><%= post.body %></span>
+                      <span class="post-title"><%=link_to post.title, post_path(post.id) %></span>
+                </div>
+              </div>
           </div>
               <% end %>
       </div>

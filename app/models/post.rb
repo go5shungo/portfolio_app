@@ -8,7 +8,6 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
   scope :by_category, ->(categories) {includes(:pets).where(pets: {kind: categories}) if categories.present? }
- 
   validates :title, presence: true
   validates :body, presence: true
   validates :image, presence: true

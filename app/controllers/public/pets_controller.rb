@@ -36,6 +36,11 @@ class Public::PetsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def update
+    pet = Pet.find(params[:id])
+    pet.update(pet_params)
+    redirect_to pet_path(pet.id)  
+  end
 
   private
   def pet_params
