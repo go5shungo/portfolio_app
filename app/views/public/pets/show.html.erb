@@ -1,36 +1,35 @@
 <div class="container">
   <div class="row"> 
-    <div class="col-lg-4">
-        <h1>名前</h1>
+    <div class="col-lg-3 mt-4">
+        <h4 >名前</h4>
         <p><%= @pet.name %></p>
-        <h2>画像</h2>
-        <%= image_tag @pet.image, size: "300x300" %>
-        <h2>種類</h2>
+        <h4>画像</h4>
+        <%= image_tag @pet.image, size: "200x200" %>
+        <h4>種類</h4>
         <p><%= @pet.kind %></p>
-        <h2>誕生日</h2>
+        <h4>誕生日</h4>
         <p><%= @pet.birthday %></p>
-        <h2>性別</h2>
+        <h4>性別</h4>
         <p><%= @pet.sex %></p>
-        <h2>紹介文</h2>
+        <h4>紹介文</h4>
         <p><%= @pet.introduction %></p>
         <% if @pet.user == current_user %>
-          <%= link_to "編集", edit_pet_path(@pet.id), class: "btn btn-lg btn-block btn-info mt-2" %>
-          <%= link_to "削除", pet_path(@pet.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-lg btn-block btn-info mt-2" %>
+          <%= link_to "編集", edit_pet_path(@pet.id), class: "btn btn-info" %>
+          <%= link_to "削除", pet_path(@pet.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
         <% end %>
     </div>
-      <div class="col-lg-8">
+      <div class="col-lg-9 text-center mt-4">
         <p><%= @pet.name %>の投稿一覧</p>
-          <div class="post-wrap">
-            <% @posts.each do |post| %>
-              <div class="post-box">
-                <%= image_tag post.image, size: "200x200" %>
-                <div class="post-comment">
-                      <span class="post-body"><%= post.body %></span>
-                      <span class="post-title"><%=link_to post.title, post_path(post.id) %></span>
-                </div>
+        <div class="post-wrap">
+        <% @posts.each do |post| %>
+          <div class="post-box">
+            <%= image_tag post.image, size: "200x200" %>
+              <div class="post-comment">
+                <span class="post-body"><%= post.body %></span>
+                <span class="post-title"><%=link_to post.title, post_path(post.id) %></span>
               </div>
           </div>
-              <% end %>
+            <% end %>
       </div>
   </div>
 </div>

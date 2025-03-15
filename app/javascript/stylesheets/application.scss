@@ -25,7 +25,7 @@
 }
 
 nav {
-  width: 880px;
+  max-width: 960px;
   margin: 0 auto;
   border-top: solid 0.7px #000000;
   border-bottom: solid 0.7px #000000;
@@ -65,4 +65,26 @@ nav {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.top-nav li a {
+  font-size: 14px;
+}
+
+[action="/search"] select {
+  font-size: 13px;
+}
+
+main.container{
+  max-width: 960px;
+}
+
+.thumbnail-box{
+  width: 100px;
+}
+
+@media screen and (max-width: 425px) {
+  main {
+    width: 100%;
+  }
 }

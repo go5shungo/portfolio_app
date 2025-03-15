@@ -2,26 +2,23 @@
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <div class="form-body p-4">
-        <h2>タイトル</h2>
-          <p><%= @post.title %></p>
-        <h2>本文</h2>
-          <p><%= @post.body %></p>
-        <h2>画像</h2>
+        <h4 class="border-left">タイトル</h4>
+          <p class="fs-2"><%= @post.title %></p>
+        <h4>本文</h4>
+          <p class="fs-2"><%= @post.body %></p>
+        <h4>画像</h4>
           <%= image_tag @post.image, size: "300x300" %>
-        <h2>ユーザーネーム</h2>
-          <p><%= @post.user.name %></p>
-        <h2>ペット情報</h2>
+        <h4>ユーザーネーム</h4>
+          <p class="fs-2"><%= @post.user.name %></p>
+        <h4>ペット情報</h4>
           <% @post.pets.each do |pet| %>
-            <P><%= link_to pet.name, pet_path(pet.id) %></p>
+            <P class="fs-2"><%= link_to pet.name, pet_path(pet.id) %></p>
           <% pet.id %>
-            <p> <%= image_tag pet.image, size: "100x100" %></p>
+            <p class="fs-2"> <%= image_tag pet.image, size: "100x100" %></p>
           <% end %>
-        <h2>投稿日</h2>
-          <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
-            <% if @post.user == current_user %>
-            <%= link_to "編集", edit_post_path(@post.id) %>
-            <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-            <% end %>
+        <h4>投稿日</h4>
+          <p class="fs-2"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
+            
           <% if @post.favorited_by?(current_user) %>
             <p>
               <%= link_to post_favorite_path(@post), method: :delete do %>
@@ -48,9 +45,13 @@
                 </div>
                 <div>
                   <%= form_with model: [@post, @post_comment] do |f| %>
-                    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-                    <%= f.submit "送信する", class: "btn btn-lg btn-block btn-info mt-4" %>
-                  <% end %>
+                    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %><br>
+                    <%= f.submit "送信する", class: "btn btn-info" %>
+                  <% end %><br>
+                  <% if @post.user == current_user %>
+            <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-info" %>
+            <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+            <% end %>
                 </div>
     </div>
   </div>

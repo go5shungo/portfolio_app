@@ -2,18 +2,22 @@
   <div class="row">
     <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
       <h1>welcome to <strong>D&C</strong>  !!</h1>
-      <h2 class = 'border'>特長</h2>
-      <P><i class="fa-solid fa-paw"></i>投稿時に自分の登録したペットを選択できる</p>
-      <P><i class="fa-solid fa-paw"></i>動物専用のSNS</p>
-      <P><i class="fa-solid fa-paw"></i>日々の成長記録にも</p>
-      <div class="btn-wrapper col-10 mx-auto">
+      <h2>特長</h2>
+      <p><i class="fa-solid fa-paw"></i>投稿時に自分の登録したペットを選択できる</p>
+      <p><i class="fa-solid fa-paw"></i>動物専用のSNS</p>
+      <p><i class="fa-solid fa-paw"></i>日々の成長記録にも</p>
+
+      <% if user_signed_in? %>
+        <div></div>
+      <% else %>
         <div class="row">
-          <%= link_to 'ログイン',new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+          <%= link_to 'ログイン', new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
         </div>
         <div class="row">
-          <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+          <%= link_to '新規登録', new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
         </div>
-      </div>
+      <% end %>
+      
     </div>
   </div>
 </div>

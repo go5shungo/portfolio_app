@@ -37,7 +37,7 @@ Pet.find_or_create_by!(name: "Boss") do |pet|
   pet.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), filename:"sample-user2.jpg")
   pet.kind = "犬"
   pet.sex = "オス"
-  pet.birthday = "2011/09/09"
+  pet.birthday = "2013/08/18"
   pet.introduction = "よろしくお願いいたします。"
   pet.user = olivia
 end
@@ -51,7 +51,7 @@ end
 Post.find_or_create_by!(title: "kuturogi") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")
   post.body = "ごろごろ"
-  post.pet = "Maron"
+  post.pet.name = "Boss"
   post.user = olivia
 end
 
