@@ -8,6 +8,10 @@
 
 puts "seedの実行を開始"
 
+Admin.find_or_create_by!(email: "sss@sss") do |admin|
+  admin.password = "#{ENV['SECRET_KEY']}"
+end
+
 olivia = User.find_or_create_by!(email: "olivia@example.com") do |user|
   user.name = "Olivia"
   user.password = "password"
@@ -39,20 +43,16 @@ Pet.find_or_create_by!(name: "Boss") do |pet|
   pet.sex = "オス"
   pet.birthday = "2013/08/18"
   pet.introduction = "よろしくお願いいたします。"
-  pet.user = olivia
+  pet.user = AAA
 end
 
-Post.find_or_create_by!(title: "日常") do |post|
-  post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")
-  post.body = "ごろごろ"
-  post.user = olivia
-end
-
-Post.find_or_create_by!(title: "kuturogi") do |post|
-  post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")
-  post.body = "ごろごろ"
-  post.pet.name = "Boss"
-  post.user = olivia
+Pet.find_or_create_by!(name: "Maron") do |pet|
+  pet.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")
+  pet.kind = "猫"
+  pet.sex = "オス"
+  pet.birthday = "2011/07/17"
+  pet.introduction = "いっぱい寝ます"
+  pet.user = AAA
 end
 
 puts "seedの実行が完了しました"
