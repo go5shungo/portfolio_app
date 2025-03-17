@@ -80,11 +80,25 @@ main.container{
 }
 
 .thumbnail-box{
+  object-fit: cover;
   width: 100px;
+  height: 100px;
 }
 
-@media screen and (max-width: 425px) {
-  main {
-    width: 100%;
-  }
+.card-img-top {
+  object-fit: cover;
+  height: 400px;
+  width: 100%;
+}
+
+.card-text{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-body{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
