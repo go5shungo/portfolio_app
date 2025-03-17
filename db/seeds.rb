@@ -9,7 +9,7 @@
 puts "seedの実行を開始"
 
 Admin.find_or_create_by!(email: "AAA@AAAA") do |admin|
-  admin.password = "#{ENV['SECRET_KEY']}"
+  admin.password = "SSSSSS"
 end
 
 olivia = User.find_or_create_by!(email: "olivia@example.com") do |user|
