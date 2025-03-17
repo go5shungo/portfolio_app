@@ -8,7 +8,7 @@
 
 puts "seedの実行を開始"
 
-Admin.find_or_create_by!(email: "sss@sss") do |admin|
+Admin.find_or_create_by!(email: "AAA@AAAA") do |admin|
   admin.password = "#{ENV['SECRET_KEY']}"
 end
 
