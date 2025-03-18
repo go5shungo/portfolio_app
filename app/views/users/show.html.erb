@@ -30,6 +30,22 @@
               </span><br>
             </div>
           <% end %>
+          <%= link_to "いいね一覧", user_favorites_path(@user) %>
+          <table>
+            <tr>
+              <th>フォロー数</th>
+              <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
+            </tr>
+            <tr>
+              <th>フォロワー数</th>
+              <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
+            </tr>
+          </table>
+          <div class="row">
+            <% if current_user.id != @user.id %>
+              <td><%= render "relationships/btn", user: @user, options: { class: ""} %></td>
+            <% end %>
+          </div>
       </div>
       <div class="col-lg-9 text-center">
         <h4><%= @user.name %>の投稿一覧</h4>

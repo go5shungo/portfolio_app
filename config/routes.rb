@@ -12,21 +12,20 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about', as: 'about'
 
-  devise_scope :user do
-    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
-  end
+
   
   devise_for :users
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resource :relationships, only: [:create, :destroy]
+  	get "followings" => "relationships#followings", as: "followings"
+  	get "followers" => "relationships#followers", as: "followers"
+    get "favorites" => "users#favorites", as: "favorites"
+  end
   scope module: :public do
     resources :posts do
       resources :post_comments,only: [:create,:destroy]
       resource :favorite,only: [:create,:destroy]
     end
-    
-    resources :relationships,only: [:create,:destroy]
-    get  "relationships/followings"  => "relationships#followings"
-    get  "relationships/followers"  => "relationships#followers"
     resources :maps
     resources :questions
     resources :answers,except: [:index]
@@ -36,7 +35,6 @@ Rails.application.routes.draw do
     end
     get '/search', to: 'searches#search'
   end
-
   namespace :admin do
     resources :sessions,only: [:new,:create,:destroy]
     resources :users,only: [:show,:destroy,:index]
