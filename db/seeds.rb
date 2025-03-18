@@ -30,20 +30,13 @@ lucas = User.find_or_create_by!(email: "lucas@example.com") do |user|
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")
 end
 
-Pet.find_or_create_by!(name: "Maron") do |pet|
-  pet.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename:"sample-user1.jpg")
-  pet.kind = "猫"
-  pet.sex = "オス"
-  pet.user = olivia
-end
-
 Pet.find_or_create_by!(name: "Boss") do |pet|
   pet.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), filename:"sample-user2.jpg")
   pet.kind = "犬"
   pet.sex = "オス"
   pet.birthday = "2013/08/18"
   pet.introduction = "よろしくお願いいたします。"
-  pet.user = AAA
+  pet.user = olivia
 end
 
 Pet.find_or_create_by!(name: "Maron") do |pet|
@@ -52,7 +45,7 @@ Pet.find_or_create_by!(name: "Maron") do |pet|
   pet.sex = "オス"
   pet.birthday = "2011/07/17"
   pet.introduction = "いっぱい寝ます"
-  pet.user = AAA
+  pet.user = olivia
 end
 
 puts "seedの実行が完了しました"
