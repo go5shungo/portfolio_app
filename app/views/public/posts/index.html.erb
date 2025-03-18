@@ -18,16 +18,16 @@
               <%= image_tag post.image, class: "card-img-top mb-2"; %>
             <% end %>
             <div class="row">
-              <div class="thumbnail-box col-md-4">
+              <div class="thumbnail-box col-4">
                 <%= image_tag post.user.get_profile_image(100,100), class: "mt-1 rounded-circle"; %>
               </div>
-              <div class="col-md-8">
+              <div class="col-8">
                 <p class="card-title">
                   <%= link_to(post_path(post.id), class: "text-dark") do %>
-                    <strong><i class="far fa-flag"></i><span class="card-body"> <%= post.title %></span></strong>
+                    <strong><i class="far fa-flag"></i><span class="card-body"> <%= truncate(post.title, length: 12) %></span></strong>
                   <% end %>
                 </p>
-                <p class="card-text">本文：<%= post.body %></p>
+                <p class="card-text">本文：<%= truncate(post.body, length: 12) %></p>
                 <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
                 <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
                 <p><%= link_to "#{post.favorites.count} いいね", post_path(post.id) %></p>

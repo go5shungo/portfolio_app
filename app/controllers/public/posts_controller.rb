@@ -4,7 +4,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.by_category(params[:categories]).page(params[:page]).per(9)
+    @posts = Post.by_category(params[:categories]).page(params[:page]).per(10)
   end
 
   def show

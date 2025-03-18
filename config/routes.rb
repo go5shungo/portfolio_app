@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about', as: 'about'
 
-
+  devise_scope :user do
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+  end
   
   devise_for :users
   resources :users, only: [:show, :edit, :update]
@@ -34,6 +36,7 @@ Rails.application.routes.draw do
     end
     get '/search', to: 'searches#search'
   end
+
   namespace :admin do
     resources :sessions,only: [:new,:create,:destroy]
     resources :users,only: [:show,:destroy,:index]

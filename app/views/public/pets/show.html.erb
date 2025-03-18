@@ -18,9 +18,9 @@
           <%= link_to "削除", pet_path(@pet.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
         <% end %>
     </div>
-      <div class="col-lg-9 text-center mt-4">
-        <p><%= @pet.name %>の投稿一覧</p>
-        <div class="post-wrap">
+    <div class="col-lg-9 text-center mt-4">
+      <p><%= @pet.name %>の投稿一覧</p>
+      <div class="post-wrap">
         <% @posts.each do |post| %>
           <div class="post-box">
             <%= image_tag post.image, size: "200x200" %>
@@ -29,7 +29,8 @@
                 <span class="post-title"><%=link_to post.title, post_path(post.id) %></span>
               </div>
           </div>
-            <% end %>
+        <% end %>
       </div>
+    </div>
   </div>
 </div>
