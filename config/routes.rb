@@ -31,9 +31,6 @@ Rails.application.routes.draw do
       resources :post_comments,only: [:create,:destroy]
       resource :favorite,only: [:create,:destroy]
     end
-    resources :maps
-    resources :questions
-    resources :answers,except: [:index]
     resources :pets,except: [:index]
     resources :users,only: [] do 
       resources :pets,only: [:index]
@@ -43,10 +40,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :sessions,only: [:new,:create,:destroy]
     resources :users,only: [:show,:destroy,:index]
-    resources :maps,only: [:show,:destroy,:index]
     resources :posts,only: [:show,:destroy,:index]
-    resources :questions,only: [:show,:destroy,:index]
-    resources :answers,only: [:show,:destroy,:index]
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
