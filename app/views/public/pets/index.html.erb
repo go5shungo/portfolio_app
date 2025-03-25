@@ -1,12 +1,11 @@
 <h1>ペット情報</h1>
   <% if current_user.id == @user.id %>
-    <%= link_to "新規ペット登録", new_pet_path %>   
+    <%= link_to "新規ペット登録", new_pet_path %>
   <% end %>
   <% @pets.each do |pet| %>
     <span>
       <%= link_to pet.name, pet_path(pet.id) %>
     </span>
-  
     <span>
       <%= image_tag pet.image, size: "200x200" %>
     </span>
