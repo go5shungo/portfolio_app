@@ -17,13 +17,14 @@ class UsersController < ApplicationController
   end
 
   def favorites
+    @user = User.find(params[:user_id])
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = @user.favorites.includes(:post).map(&:post)
+  end
   
   private
 
   def user_params
     params.require(:user).permit(:name, :profile_image)
   end
-end
 end

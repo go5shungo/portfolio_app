@@ -13,6 +13,17 @@
       <div class="col-lg-3">
        <h4>プロフィール</h4>
         <%= image_tag @user.get_profile_image(200,200), class: "mt-7"; %><br>
+          <table>
+            <tr>
+              <th>フォロー数</th>
+              <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
+            </tr>
+            <tr>
+              <th>フォロワー数</th>
+              <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
+            </tr>
+          </table>
+        <%= link_to "いいね一覧", user_favorites_path(@user) %><br>
         <% if current_user.email == "guest@example.com" %>
           <!-- <p>ゲストユーザーはペット情報を登録できません。</p> -->
         <% elsif current_user.id == @user.id %>
@@ -30,17 +41,7 @@
               </span><br>
             </div>
           <% end %>
-          <%= link_to "いいね一覧", user_favorites_path(@user) %>
-          <table>
-            <tr>
-              <th>フォロー数</th>
-              <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
-            </tr>
-            <tr>
-              <th>フォロワー数</th>
-              <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
-            </tr>
-          </table>
+          
           <div class="row">
             <% if current_user.id != @user.id %>
               <td><%= render "relationships/btn", user: @user, options: { class: ""} %></td>
