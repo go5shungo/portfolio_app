@@ -21,7 +21,7 @@ class Public::PostsController < ApplicationController
     elsif @post.save
       pets_params[:pet_ids].each do |pet_id|
         PostPet.create(post_id: @post.id, pet_id: pet_id)
-      end
+    end
       flash[:notice] = "投稿に成功しました。"
       redirect_to post_path(@post.id)
     else
